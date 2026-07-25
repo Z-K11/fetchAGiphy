@@ -1,0 +1,45 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 62.5%;
+  --mainBackground: #ff9d9d;
+  --secondaryBackground: #a3f7c7;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--mainBackground, lightpink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+  border: 0.9rem solid #eef8cd;
+}
+.imgAlignment {
+  height: 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25%;
+}
+.imageWrapper {
+  width: 100%;
+}
+img {
+  width: 100%;
+  border-radius: 2rem;
+}
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+.buttonWrapper > button {
+  font-size: 150%;
+  padding: 2% 5%;
+  background-color: var(--secondaryBackground, lightgreen);
+  border: none;
+  border-radius: 1rem;
+}
