@@ -1,5 +1,6 @@
 import './style.css';
 const img = document.querySelector('img');
+img.style.display = 'none';
 const regex = /^[a-zA-z]+$/;
 const searchBar = document.getElementById('searchBar');
 const error = document.getElementById('error');
@@ -34,6 +35,7 @@ gifLoader.addEventListener('click', () => {
         }
         error.classList.remove('error');
         error.textContent = '';
+        img.style.display = 'block';
         img.src = response.data.images.original.url;
       })
       .catch((err) => {
