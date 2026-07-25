@@ -7,6 +7,7 @@
   font-size: 62.5%;
   --mainBackground: #ff9d9d;
   --secondaryBackground: #a3f7c7;
+  --cream: #eef8cd;
 }
 body {
   width: 100vw;
@@ -16,22 +17,24 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0 5%;
-  border: 0.9rem solid #eef8cd;
+  border: 0.9rem solid var(--cream, lightyellow);
 }
 .imgAlignment {
   height: 60%;
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
+  gap: 5%;
 }
 .imageWrapper {
   width: 100%;
-  height: 100%;
+  flex: 1;
 }
-img {
+.imageWrapper img {
   width: 100%;
-  max-height: 50%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 2rem;
 }
 .buttonWrapper {
@@ -44,4 +47,32 @@ img {
   background-color: var(--secondaryBackground, lightgreen);
   border: none;
   border-radius: 1rem;
+  color: darkorchid;
+}
+#searchBar {
+  width: 100%;
+  border: 0.2rem solid var(--cream, lightyellow);
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  color: darkorchid;
+}
+#searchBar:focus {
+  outline: none;
+}
+span {
+  display: block;
+}
+.error {
+  margin-top: 2%;
+  font-size: 1.6rem;
+  color: darkorchid;
+  background-color: var(--secondaryBackground);
+  width: 100%;
+  text-align: center;
+  border-radius: 0.2rem;
+}
+.searchWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
