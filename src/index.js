@@ -17,30 +17,28 @@ searchBar.addEventListener('input', () => {
     error.classList.add('error');
   }
 });
+async function getAGiphy() {
+  try {
+    console.log('Giphy called');
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/random?api_key=hFLAx6aQY4wb7X95uoSAOJOdmOHihn6s&tag=${searchBar.value}`
+    );
+    if (!response.ok) {
+      throw new Error(`API ERROR message = ${response.status}`);
+    }
+    const gifData = await response.json();
+    if (!gifData.data || gifData.data.images) {
+      throw new Error(`No gif found for the search`);
+    }
+    img.src = gifData.data.images.original.url;
+    img.style.display = 'block';
+  } catch (err) {
+    console.error(err);
+  }
+}
 const gifLoader = document.querySelector('#gifLoader');
 gifLoader.addEventListener('click', () => {
   if (inputValidator()) {
-    fetch(
-      `https://api.giphy.com/v1/gifs/random?api_key=hFLAx6aQY4wb7X95uoSAOJOdmOHihn6s&tag=${searchBar.value}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`Api Error ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((response) => {
-        if (!response.data || !response.data.images) {
-          throw new Error('No GIF found for the search');
-        }
-        error.classList.remove('error');
-        error.textContent = '';
-        img.style.display = 'block';
-        img.src = response.data.images.original.url;
-      })
-      .catch((err) => {
-        error.textContent = err.message;
-        error.classList.add('error');
-      });
+    getAGiphy();
   }
 });
