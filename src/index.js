@@ -27,7 +27,7 @@ async function getAGiphy() {
       throw new Error(`API ERROR message = ${response.status}`);
     }
     const gifData = await response.json();
-    if (!gifData.data || gifData.data.images) {
+    if (!gifData.data || !gifData.data.images) {
       throw new Error(`No gif found for the search`);
     }
     img.src = gifData.data.images.original.url;
